@@ -3,5 +3,5 @@ module.exports = {
   siteMetadata: {
     title: "quiz app",
   },
-  plugins: [],
+  plugins: ['gatsby-plugin-postcss'],
 };

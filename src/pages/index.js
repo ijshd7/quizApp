@@ -19,8 +19,11 @@ const buttonStyle = {
 }
 const anchorStyle = {
   bottom: '0',
-  position: 'fixed',
-  marginLeft: '-5rem',
+  position: 'absolute',
+  right: '25%',
+  left: '50%',
+  width: '300px',
+  marginLeft: '-150px',
 }
 
 const IndexPage = () => {
@@ -73,9 +76,9 @@ const IndexPage = () => {
       {state.loading && (
         <h1 style={headerStyle}>LOADING...</h1>
       )}
-      {page === 0 && (
+      {!state.loading && page === 0 && (
         <>
-          <h1 style={headerStyle}>Welcome to the Trivia Challenge!</h1>
+          <h1 style={headerStyle}>Welcome to Isaiah's Trivia Challenge!</h1>
           <p style={paraStyle}>You will be presented with 10 True or False questions.</p>
           <p style={paraStyle}>Can you score 100%?</p>
           <button 
@@ -181,13 +184,13 @@ const IndexPage = () => {
           </button>
           {visibleResults && (
             <>
-              {right.map(result => 
-                <p style={{color: 'green', fontSize: '0.75rem'}} key={result}>
+              {right.map((result, index) => 
+                <p style={{color: 'green', fontSize: '0.75rem'}} key={index}>
                   + {he.decode(`${allQuestions[result]}`)}
                 </p>
               )}
-              {wrong.map(result => 
-                <p style={{color: 'red', fontSize: '0.75rem'}} key={result}>
+              {wrong.map((result, index) => 
+                <p style={{color: 'red', fontSize: '0.75rem'}} key={index}>
                   - {he.decode(`${allQuestions[result]}`)}
                 </p>
               )}
@@ -198,14 +201,16 @@ const IndexPage = () => {
             onClick={() => {
               setPage(0);
               setScore(0);
-              setAnswers([])
+              setAnswers([]);
+              setRight([]);
+              setWrong([]);
             }}
           >
             Try Again?
           </button>
         </>
       ))}
-      <a style={anchorStyle} href="https://github.com/ijshd7/quizApp" target="_blank" rel="noreferrer">source</a>
+      <a style={anchorStyle} alt='Link to source code' href="https://github.com/ijshd7/quizApp" target="_blank" rel="noreferrer">source</a>
     </main>
   )
 }

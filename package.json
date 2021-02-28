@@ -1,1 +1,27 @@
-{"name":"quiz-app","version":"1.0.0","private":true,"description":"quiz app","author":"Isaiah Sherrill","keywords":["gatsby"],"scripts":{"develop":"gatsby develop","start":"gatsby develop","build":"gatsby build","serve":"gatsby serve","clean":"gatsby clean"},"dependencies":{"gatsby":"^2.32.8","react":"^16.13.1","react-dom":"^16.13.1"}}
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "quiz app for a coding challenge",
+  "author": "Isaiah Sherrill",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+  },
+  "dependencies": {
+    "gatsby": "^2.32.8",
+    "he": "^1.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+  }
+}

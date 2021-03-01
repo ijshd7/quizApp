@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import he from 'he';
 
-export const myContext = React.createContext();
+const MyContext = React.createContext(null);
 
-const Provider = props => {
+export const MyProvider: any = ({ children }: any) => {
     const [state, setState] = useState({
         loading: true,
         error: false,
@@ -29,11 +29,11 @@ const Provider = props => {
         wrongs.pop();
       }
     }
-    let updatedScore = 0;
-    let rights = [];
-    let wrongs = [];
-    const calcScore = (x, y) => {
-      for (let i = 0; i < 10; i++) {
+    let updatedScore: number = 0;
+    let rights: string[] = [];
+    let wrongs: string[] = [];
+    const calcScore = (x: any, y: any) => {
+      for (let i: any = 0; i < 10; i++) {
         if (x[i] === y[i]) {
           updatedScore = updatedScore + 1;
           rights.push(i);
@@ -57,11 +57,11 @@ const Provider = props => {
             setAllQuestions(allQuestions.concat(questionBulk));
           })
           .catch(err => {
-            setState({error: err})
+            console.log(err)
           })
     }, [])
     return (
-        <myContext.Provider
+        <MyContext.Provider
             value={{
               state, page, score, answers, right, wrong,
               hitTrue: () => {setAnswers(answers.concat('True')); setPage(page + 1);},
@@ -95,13 +95,9 @@ const Provider = props => {
               })},
             }}
         >
-            {props.children}
-        </myContext.Provider>
+            {children}
+        </MyContext.Provider>
     );
 }
 
-export default ({ element }) => (
-    <Provider>
-        {element}
-    </Provider>
-);
+export default MyContext;

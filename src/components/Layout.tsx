@@ -1,9 +1,9 @@
 import React from 'react';
 import Anchor from './Anchor';
 
-const Layout = ({ children }) => {
+const Layout: any = ({ children }: any) => {
     return (
-        <main className="w-full h-screen overflow-hidden text-center">
+        <main className="w-full h-screen overflow-hidden text-center bg-green-100">
             {children}
             <Anchor
                 alt="Link to source code"

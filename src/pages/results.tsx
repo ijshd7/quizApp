@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from '../components/Button';
 import { navigate } from 'gatsby';
-import { myContext } from '../hooks/Provider';
+import MyContext from '../hooks/Provider';
 
 const ResultsPage = () => {
     return (
-        <myContext.Consumer>
+        <MyContext.Consumer>
             {context => (
                 <>
                     <h1 className="text-3xl text-indigo-500 mb-4">You Finished!</h1>
@@ -23,7 +23,7 @@ const ResultsPage = () => {
                     />
                 </>
             )}
-        </myContext.Consumer>
+        </MyContext.Consumer>
     );
 }
 
